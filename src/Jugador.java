@@ -1,8 +1,7 @@
-public class Jugador {
-    private String nombre;
-    private Equipo equipo;
+public class Jugador extends Persona{
 
     public Jugador() {
+        super();
         System.out.println("Haz creado una instancia de jugador");
     }
     public Jugador(String nombre) {
@@ -13,20 +12,16 @@ public class Jugador {
         this(nombre);
         this.equipo = equipo;
     }
-
-    public String getNombre() {
-        return this.nombre;
+    public Jugador(String nombre, Equipo equipo, int edad) {
+        this(nombre, equipo);
+        this.edad = edad;
     }
-        public Equipo getEquipo() {
-            return this.equipo;
-        }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+
+    @Override
+    public String gritarGol() {
+        return super.gritarGol().concat(" de").concat(this.getEquipo().getNombre());
     }
-        public void setEquipo(Equipo equipo) {
-            this.equipo = equipo;
-        }
 
     @Override
     public String toString() {
